@@ -40,9 +40,8 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
 
 ## Definindo a hora: 
 
-'hora_desejada = datetime.time(12, 30) # 12:30'
-
-    * Utilizando-se o formato 24 horas, defina o horario de envio da mensagem.
+    'hora_desejada = datetime.time(12, 30) # 12:30'
+        * Utilizando-se o formato 24 horas, defina o horario de envio da mensagem.
 
 hora(s) | Minuto(s)
 :---: | :---:
