@@ -38,19 +38,6 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
 
 # Configurando o código:
 
-## Definindo a hora: 
-
-    'hora_desejada = datetime.time(12, 30) # 12:30'
-
-* Utilizando-se o formato 24 horas, defina o horario de envio da mensagem.
-    
-    hora(s) | Minuto(s)
-    :---: | :---:
-    12 | 30
-    18 | 45
-    23| 59
-    09 | 43
-
 ## Configuração do servidor SMTP e informações da conta:
 
     '''server = smtplib.SMTP('smtp.office365.com', 587)
@@ -68,7 +55,7 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
 ## Criação da mensagem:
     '''msg = MIMEMultipart()
        msg['From'] = "seu_email@gmail.com"
-       msg['To'] = "destinatario@example.com"
+       destinatarios = [''email1@example.com', 'email2@example.com', 'email3@example.com']
        msg['Subject'] = "Assunto do E-mail"'''
 
 * Nesse campo você deverá informar o seu e-mail, o e-mail destinatário e o assunto do conteúdo.
@@ -91,12 +78,25 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
 * Neste campo você deverá informar o nome exato da imagem que deseja enviar e a mesma deve estar dentro da pasta do código.
 
 ## Enviando a mensagem
-        '''server.sendmail("seu_email@gmail.com", "destinatario@example.com", msg.as_string())
-        server.quit()'''
+    '''server.sendmail("seu_email@gmail.com", "destinatario@example.com", msg.as_string())
+    server.quit()'''
 ---
     'server.sendmail("seu_email@gmail.com", "destinatario@example.com", msg.as_string())'
     
 * Neste campo você deverá informar o seu e-mail e o e-mail do destinatário.
+
+## Configurar o agendamento de envio de e-mails
+    '''schedule.every().day.at("12:00").do(enviar_email)  # Envio diário às 09:00
+    schedule.every().day.at("14:30").do(enviar_email)  # Envio diário às 14:30'''
+
+* Utilizando-se o formato 24 horas, defina o horario de envio da mensagem.
+    
+    hora(s) | Minuto(s)
+    :---: | :---:
+    12 | 30
+    18 | 45
+    23| 59
+    09 | 43
 
 # Feito tudo isso, você pode rodar o código.
 
