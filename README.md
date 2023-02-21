@@ -40,60 +40,60 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
 
 ## Configuração do servidor SMTP e informações da conta:
 
-'''server = smtplib.SMTP('smtp.office365.com', 587)
-   server.starttls()
-   server.login("seu_email@gmail.com", "sua_senha")'''
+    '''server = smtplib.SMTP('smtp.office365.com', 587)
+        server.starttls()
+        server.login("seu_email@gmail.com", "sua_senha")'''
 ---
-'server = smtplib.SMTP('smtp.office365.com', 587)'
+    'server = smtplib.SMTP('smtp.office365.com', 587)'
 
 * Defina o servidor SMTP e a respectiva porta que **você** utiliza, no exemplo acima temos para uma conta Outlook.com
 ---
-'server.login("seu_email@gmail.com", "sua_senha")'
+    'server.login("seu_email@gmail.com", "sua_senha")'
 
 * Neste campo você deverá informar seu email e senha do e-mail que você utiliza, para que o programa consiga enviar as mensagens.
 
 ## Cadastro de E-mails:
-'''emails1@example.com
-   email2@example.com'''
+    '''emails1@example.com
+    email2@example.com'''
 
 * No arquivo emails.txt você vai inserir manualmente os e-mails para quem você deseja programar o envio automático, seguindo o padrão de quebra de linha por email preenchido e sem qualquer tipo de caracteres extras.
 
 ## Criação da mensagem:
-'''msg = MIMEMultipart()
-   msg['From'] = "seu_email@gmail.com"
-   destinatarios = lista_emails
-   msg['Subject'] = "Assunto do E-mail"'''
+    '''msg = MIMEMultipart()
+       msg['From'] = "seu_email@gmail.com"
+       destinatarios = lista_emails
+       msg['Subject'] = "Assunto do E-mail"'''
 
 * Nesse campo você deverá informar o seu e-mail e o assunto do conteúdo.
 
 ## Adicionando o corpo da mensagem
-'''corpo = MIMEText("Corpo do E-mail")
-   msg.attach(corpo)'''
+     '''corpo = MIMEText("Corpo do E-mail")
+        msg.attach(corpo)'''
 ---
-'corpo = MIMEText("Corpo do E-mail")'
+    'corpo = MIMEText("Corpo do E-mail")'
     
 * Neste campo você deverá escrever todo o conteúdo do e-mail.
 
 ## Adicionando uma imagem ao e-mail
-'''with open("imagem.jpg", "rb") as f:
-   imagem = MIMEImage(f.read())
-   msg.attach(imagem)'''
+    '''with open("imagem.jpg", "rb") as f:
+            imagem = MIMEImage(f.read())
+            msg.attach(imagem)'''
 ---
-'with open("imagem.jpg", "rb") as f:'
+    'with open("imagem.jpg", "rb") as f:'
     
 * Neste campo você deverá informar o nome exato da imagem que deseja enviar e a mesma deve estar dentro da pasta do código.
 
 ## Enviando a mensagem
-'''server.sendmail("seu_email@gmail.com", "destinatario@example.com", msg.as_string())
-   server.quit()'''
+    '''server.sendmail("seu_email@gmail.com", "destinatario@example.com", msg.as_string())
+    server.quit()'''
 ---
-'server.sendmail("seu_email@gmail.com", "destinatario@example.com", msg.as_string())'
+    'server.sendmail("seu_email@gmail.com", "destinatario@example.com", msg.as_string())'
     
 * Neste campo você deverá informar o seu e-mail e o e-mail do destinatário.
 
 ## Configurar o agendamento de envio de e-mails
-'''schedule.every().day.at("12:00").do(enviar_email)  # Envio diário às 09:00
-   schedule.every().day.at("14:30").do(enviar_email)  # Envio diário às 14:30'''
+    '''schedule.every().day.at("12:00").do(enviar_email)  # Envio diário às 09:00
+    schedule.every().day.at("14:30").do(enviar_email)  # Envio diário às 14:30'''
 
 * Utilizando-se o formato 24 horas, defina o horario de envio da mensagem.
     
