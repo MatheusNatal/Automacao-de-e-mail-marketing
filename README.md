@@ -1,4 +1,4 @@
-# Automatização de Emails
+# Automação de e-mail marketing
 
 ## Saiba como um servidor SMTP funciona
 O funcionamento de um servidor SMTP é bem simples de entender. Quando uma pessoa escreve um email e clica em *enviar*, todas as informações referentes a ele são enviadas para o servidor SMTP.
