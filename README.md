@@ -44,14 +44,12 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
 
 * Utilizando-se o formato 24 horas, defina o horario de envio da mensagem.
     
-Exemplo:
-
-hora(s) | Minuto(s)
-:---: | :---:
-12 | 30
-18 | 45
-23| 59
-09 | 43
+    hora(s) | Minuto(s)
+    :---: | :---:
+    12 | 30
+    18 | 45
+    23| 59
+    09 | 43
 
 ## Configuração do servidor SMTP e informações da conta:
 
