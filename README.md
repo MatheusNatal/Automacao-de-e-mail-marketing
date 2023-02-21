@@ -59,7 +59,7 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
         server.login("seu_email@gmail.com", "sua_senha")'''
 ---
     'server = smtplib.SMTP('smtp.office365.com', 587)'
-        * Defina o servidor SMTP e a respectiva porta que ***você*** utiliza, no exemplo acima temos para uma conta Outlook.com
+        * Defina o servidor SMTP e a respectiva porta que **você** utiliza, no exemplo acima temos para uma conta Outlook.com
 ---
     'server.login("seu_email@gmail.com", "sua_senha")'
         * Neste campo você deverá informar seu email e senha do e-mail que você utiliza, para que o programa consiga enviar as mensagens.
