@@ -5,16 +5,20 @@ from email.mime.image import MIMEImage
 import schedule
 import time
 
-# Configuração do servidor SMTP e informações da conta'''
+
+# Configuração do servidor SMTP e informações da conta
 def enviar_email():
+    with open('emails.txt', 'r') as arquivo:
+        lista_emails = arquivo.read().splitlines()
+
     server = smtplib.SMTP('smtp.office365.com', 587)
     server.starttls()
     server.login("seu_email@example.com", "sua_senha")
 
     # Criação da mensagem
     msg = MIMEMultipart()
-    msg['From'] = "seu_email@gmail.com"
-    destinatarios = ['email1@example.com', 'email2@example.com', 'email3@example.com']
+    msg['From'] = "seu_email@example.com"
+    destinatarios = lista_emails
     msg['Subject'] = "Assunto do E-mail"
 
     # Adicionando o corpo da mensagem
@@ -27,7 +31,7 @@ def enviar_email():
         msg.attach(imagem)
 
     # Enviando a mensagem
-    server.sendmail("seu_email@example.com", destinatarios, msg.as_string())
+    server.sendmail("seu_email@example.com", ", ".join(destinatarios), msg.as_string())
     server.quit()
 
 # Configurar o agendamento de envio de e-mails

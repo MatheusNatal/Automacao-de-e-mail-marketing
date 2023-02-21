@@ -52,13 +52,19 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
 
 * Neste campo você deverá informar seu email e senha do e-mail que você utiliza, para que o programa consiga enviar as mensagens.
 
+## Cadastro de E-mails:
+    '''emails1@example.com
+    email2@example.com'''
+
+* No arquivo emails.txt você vai inserir manualmente os e-mails para quem você deseja programar o envio automático, seguindo o padrão de quebra de linha por email preenchido e sem qualquer tipo de caracteres extras.
+
 ## Criação da mensagem:
     '''msg = MIMEMultipart()
        msg['From'] = "seu_email@gmail.com"
-       destinatarios = [''email1@example.com', 'email2@example.com', 'email3@example.com']
+       destinatarios = lista_emails
        msg['Subject'] = "Assunto do E-mail"'''
 
-* Nesse campo você deverá informar o seu e-mail, o e-mail destinatário e o assunto do conteúdo.
+* Nesse campo você deverá informar o seu e-mail e o assunto do conteúdo.
 
 ## Adicionando o corpo da mensagem
      '''corpo = MIMEText("Corpo do E-mail")
@@ -98,5 +104,6 @@ Já nas plataformas pagas, o limite varia conforme o plano e a empresa, mas, de 
     23| 59
     09 | 43
 
+* Você pode adicionar quantos agendamentos quiser.
 # Feito tudo isso, você pode rodar o código.
 
