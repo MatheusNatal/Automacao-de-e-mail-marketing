@@ -3,11 +3,11 @@
 ## Saiba como um servidor SMTP funciona
 O funcionamento de um servidor SMTP é bem simples de entender. Quando uma pessoa escreve um email e clica em *enviar*, todas as informações referentes a ele são enviadas para o servidor SMTP.
 
-Nesse momento, o ***servidor*** vai adequar o conteúdo recebido aos padrões do protocolo de transferência de email e encaminhá-lo para a internet, onde será transmitido: similar ao que os carteiros fazem ao recolher as correspondências a serem enviadas.
+Nesse momento, o **servidor** vai adequar o conteúdo recebido aos padrões do protocolo de transferência de email e encaminhá-lo para a internet, onde será transmitido: similar ao que os carteiros fazem ao recolher as correspondências a serem enviadas.
 
 Eles fazem a organização conforme os destinos e identificam os pacotes conforme as regras internas da companhia. Então, os malotes são levados para transporte, até o próximo ponto de controle, que será a agência responsável por fazer a entrega final.
 
-No caso dos emails, esse papel é realizado por um servidor ***POP/IMAP***, que pega as mensagens recebidas na internet e as leva até as caixas dos destinatários. Exatamente como fazem os carteiros todos os dias pelas ruas, porém de forma digital e em poucos segundos.
+No caso dos emails, esse papel é realizado por um servidor **POP/IMAP**, que pega as mensagens recebidas na internet e as leva até as caixas dos destinatários. Exatamente como fazem os carteiros todos os dias pelas ruas, porém de forma digital e em poucos segundos.
 
 ## Informações específicas dos principais servidores gratuitos
 ### Lista de servidores e portas SMTP:
