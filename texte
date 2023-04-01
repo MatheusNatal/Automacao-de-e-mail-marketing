@@ -1,0 +1,70 @@
+import tkinter as tk
+from tkinter import filedialog
+from tkinter import messagebox
+from PIL import Image
+import pytesseract
+import os
+import reportlab
+
+# Definir o caminho para o executável tesseract
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+# Função para converter PDF em imagens
+def pdf_to_images(file_path):
+    images = []
+    with Image.open(file_path) as pdf:
+        for i in range(pdf.n_frames):
+            pdf.seek(i)
+            # Converter o PDF em JPEG ou PNG
+            image_path = file_path[:-4] + f'_{i+1}.jpg'
+            if pdf.format == 'PDF':
+                with Image.new('RGB', pdf.size, (255, 255, 255)) as img:
+                    img.paste(pdf, mask=pdf.convert('RGBA'))
+                    img.save(image_path, 'JPEG')
+            else:
+                pdf.save(image_path, 'JPEG')
+            images.append(image_path)
+    return images
+
+# Função para extrair texto do arquivo PDF e salvá-lo em um arquivo de PDF editável
+def extract_text(file_path):
+    images = []
+    if file_path.lower().endswith('.pdf'):
+        images = pdf_to_images(file_path)
+    elif file_path.lower().endswith('.jpeg') or file_path.lower().endswith('.jpg') or file_path.lower().endswith('.png'):
+        images.append(file_path)
+    else:
+        messagebox.showerror('Erro', 'Selecione um arquivo PDF, JPEG ou PNG.')
+        return
+    # Extrair texto de cada imagem
+    text = ''
+    for image in images:
+        with Image.open(image) as img:
+            text += pytesseract.image_to_string(img)
+    # Salvar texto em um arquivo PDF editável
+    save_folder_path = filedialog.askdirectory()
+    if save_folder_path:
+        save_file_path = os.path.join(save_folder_path, os.path.splitext(os.path.basename(file_path))[0] + '.pdf')
+        with open(save_file_path, 'wb') as f:
+            # Criar um arquivo PDF vazio
+            c = canvas.Canvas(f)
+            # Definir o tamanho da página como o tamanho da imagem
+            with Image.open(images[0]) as img:
+                c.setPageSize((img.width, img.height))
+            # Adicionar o texto extraído ao PDF
+            c.drawString(10, 10, text)
+            # Fechar o arquivo PDF
+            c.save()
+
+# Função para selecionar um arquivo PDF, JPEG ou PNG usando uma caixa de diálogo
+def select_file():
+    file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf"), ("JPEG files", "*.jpg;*.jpeg"), ("PNG files", "*.png")])
+    if file_path:
+        extract_text(file_path)
+
+# Criar janela para selecionar arquivo PDF, JPEG ou PNG
+root = tk.Tk()
+root.withdraw()
+
+# Chamar a função para selecionar o arquivo PDF, JPEG ou PNG
+select_file
